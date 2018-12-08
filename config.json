@@ -1,0 +1,13 @@
+{
+    
+    "target_url":"https://etfeedscache.indiatimes.com/ETService/DividendDetailsForAll?pagesize=500&pid=24&pageno=1&sortby=4&sortorder=desc&companyid=0&year=0&filtertype=latest&marketcap=All&callback=ajaxResponse&totalpages=2",
+
+    "target_url_bse_nse":"https://json.bselivefeeds.indiatimes.com/ET_Community/companypagedata?companyid=11890&companytype=&callback=ets.hitMarket",
+    "proxy_config": {
+        "http" : "",
+        "https" : ""
+    },
+    "db_name": "scrap_econo"
+    
+}
+
