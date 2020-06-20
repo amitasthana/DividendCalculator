@@ -35,7 +35,7 @@ class EconomicScrapper(object):
             if result_content.status_code == 200:
                 if result_content.content:
                     crawled_data = result_content.content
-                    rgex_search = re.search('ajaxResponse\((.*)\)(\r)?(\n)?', crawled_data)
+                    rgex_search = re.search(b'ajaxResponse\((.*)\)(\r)?(\n)?', crawled_data)
                     if rgex_search:
                         result = json.loads(rgex_search.group(1))
                         # print json.dumps(result, indent=3)
@@ -61,7 +61,7 @@ class EconomicScrapper(object):
             if result_content.status_code == 200:
                 if result_content.content:
                     crawled_data = result_content.content
-                    rgex_search = re.search('ets.hitMarket\((.*)\)(\r)?(\n)?', crawled_data)
+                    rgex_search = re.search(b'ets.hitMarket\((.*)\)(\r)?(\n)?', crawled_data)
                     if rgex_search:
                         result = json.loads(rgex_search.group(1))
                         # print json.dumps(result, indent=3)
