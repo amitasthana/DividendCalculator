@@ -13,7 +13,7 @@ Class to scrap the economic time data
 class EconomicScrapper(object):
     
     def __init__(self):
-        with open("DividendCalculator\config.json", "r") as fp:
+        with open("./config.json", "r") as fp:
             self.config_dct = json.load(fp)
         try:
             self.client = MongoClient('localhost', 27017)
