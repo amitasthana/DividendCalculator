@@ -13,7 +13,7 @@ Class to scrap the economic time data
 class EconomicScrapper(object):
     
     def __init__(self):
-        with open("./config.json", "r") as fp:
+        with open("DividendCalculator\config.json", "r") as fp:
             self.config_dct = json.load(fp)
         try:
             self.client = MongoClient('localhost', 27017)
@@ -35,7 +35,7 @@ class EconomicScrapper(object):
             if result_content.status_code == 200:
                 if result_content.content:
                     crawled_data = result_content.content
-                    rgex_search = re.search('ajaxResponse\((.*)\)(\r)?(\n)?', crawled_data)
+                    rgex_search = re.search(b'ajaxResponse\((.*)\)(\r)?(\n)?', crawled_data)
                     if rgex_search:
                         result = json.loads(rgex_search.group(1))
                         # print json.dumps(result, indent=3)
@@ -61,7 +61,7 @@ class EconomicScrapper(object):
             if result_content.status_code == 200:
                 if result_content.content:
                     crawled_data = result_content.content
-                    rgex_search = re.search('ets.hitMarket\((.*)\)(\r)?(\n)?', crawled_data)
+                    rgex_search = re.search(b'ets.hitMarket\((.*)\)(\r)?(\n)?', crawled_data)
                     if rgex_search:
                         result = json.loads(rgex_search.group(1))
                         # print json.dumps(result, indent=3)
